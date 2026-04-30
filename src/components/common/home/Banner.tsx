@@ -137,11 +137,7 @@ const Banner = () => {
   ];
 
   return (
-    <section
-      id="home"
-      ref={bannerRef}
-      className="relative min-h-screen overflow-hidden"
-    >
+    <section id="home" ref={bannerRef} className="relative  overflow-hidden">
       <div className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col-reverse items-center gap-8 lg:gap-12 xl:gap-16 md:flex-row">
           {/* Text Content */}
