@@ -34,7 +34,7 @@ export default function ProjectSection() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const projectsPerPage = 3;
+  const projectsPerPage = 4; // Changed from 3 to 4
 
   useEffect(() => {
     async function getProjects() {
@@ -78,11 +78,11 @@ export default function ProjectSection() {
             <div className="h-10 w-48 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto mb-4 animate-pulse"></div>
             <div className="h-4 w-64 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto animate-pulse"></div>
           </div>
-          <div className="space-y-5">
-            {[1, 2, 3].map(i => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[1, 2, 3, 4].map(i => (
               <div
                 key={i}
-                className="bg-gray-200 dark:bg-gray-800 rounded-md h-64 animate-pulse"
+                className="bg-gray-200 dark:bg-gray-800 rounded-md h-96 animate-pulse"
               ></div>
             ))}
           </div>
@@ -123,139 +123,81 @@ export default function ProjectSection() {
             </p>
           </div>
 
-          {/* PROJECT CARDS */}
-          <div className="space-y-5">
+          {/* PROJECT CARDS - Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {currentProjects.map(project => (
               <div
                 key={project._id}
-                className="group bg-white dark:bg-gray-800 rounded-md shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
-                <div className="flex flex-col lg:flex-row">
-                  {/* IMAGE SLIDER */}
-                  <div className="lg:w-2/5 relative">
-                    <div className="relative h-64 md:h-[280px]">
-                      <ProjectImageSlider images={project.images} />
-                    </div>
+                {/* IMAGE SLIDER */}
+                <div className="relative overflow-hidden h-48">
+                  <ProjectImageSlider images={project.images} />
 
-                    {/* FEATURED BADGE */}
-                    {project.featured && (
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="bg-gradient-to-r from-purple-600 to-orange-500 text-white text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1 shadow-lg">
-                          <Star size={12} fill="currentColor" />
-                          Featured
-                        </span>
-                      </div>
+                  {/* FEATURED BADGE */}
+                  {project.featured && (
+                    <div className="absolute top-2 left-2 z-10">
+                      <span className="bg-gradient-to-r from-purple-600 to-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium flex items-center gap-1 shadow-lg">
+                        <Star size={10} fill="currentColor" />
+                        Featured
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-4 flex flex-col flex-1">
+                  {/* CATEGORY */}
+                  <div className="mb-2">
+                    <span className="inline-block bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/30 dark:to-orange-900/30 text-purple-600 dark:text-purple-400 text-xs px-2 py-1 rounded-full font-medium">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {/* TITLE */}
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-1 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-orange-500 group-hover:bg-clip-text transition-all duration-300">
+                    {project.title}
+                  </h3>
+
+                  {/* DESCRIPTION */}
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2 flex-1">
+                    {project.description}
+                  </p>
+
+                  {/* TECHNOLOGIES */}
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {project.technologies.slice(0, 3).map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded-md"
+                      >
+                        <Code2 size={8} />
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                        +{project.technologies.length - 3}
+                      </span>
                     )}
                   </div>
 
-                  {/* CONTENT */}
-                  <div className="lg:w-3/5 p-6 lg:px-8 flex flex-col justify-between">
-                    {/* CATEGORY */}
-                    <div className="mb-4">
-                      <span className="inline-block bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/30 dark:to-orange-900/30 text-purple-600 dark:text-purple-400 text-xs px-3 py-1 rounded-full font-medium">
-                        {project.category}
-                      </span>
-                    </div>
+                  {/* BUTTONS */}
+                  <div className="flex gap-2 mt-auto pt-3 border-t border-gray-200 dark:border-gray-700">
+                    <Link
+                      href={`/demo/${project._id}`}
+                      className="flex-1 inline-flex items-center justify-center gap-1 bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white px-3 py-1.5 rounded-lg font-medium text-sm transition-all duration-300 shadow-md"
+                    >
+                      Details
+                      <ArrowRight size={14} />
+                    </Link>
 
-                    {/* TITLE */}
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-orange-500 group-hover:bg-clip-text transition-all duration-300">
-                      {project.title}
-                    </h3>
-
-                    {/* DESCRIPTION */}
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                      {project.description}
-                    </p>
-
-                    {/* TECHNOLOGIES */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="inline-flex items-center gap-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md"
-                        >
-                          <Code2 size={10} />
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* PRICE & DURATION & DETAILS */}
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-700 pb-4">
-                      <div className="flex gap-6">
-                        {/* Price */}
-                        <div className="flex items-center gap-2">
-                          <div className="p-1.5 bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/30 dark:to-orange-900/30 rounded-lg">
-                            <DollarSign
-                              size={16}
-                              className="text-purple-600 dark:text-purple-400"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                              Price
-                            </p>
-                            <p className="font-bold text-gray-900 dark:text-white">
-                              {project.price}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Duration */}
-                        <div className="flex items-center gap-2">
-                          <div className="p-1.5 bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/30 dark:to-orange-900/30 rounded-lg">
-                            <Clock
-                              size={16}
-                              className="text-purple-600 dark:text-purple-400"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                              Duration
-                            </p>
-                            <p className="font-bold text-gray-900 dark:text-white">
-                              {project.duration}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Rating */}
-                        <div className="flex items-center gap-2">
-                          <div className="p-1.5 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
-                            <Star
-                              size={16}
-                              className="text-yellow-600 dark:text-yellow-400 fill-yellow-600"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                              Rating
-                            </p>
-                            <p className="font-bold text-gray-900 dark:text-white">
-                              {project.rating}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* BUTTONS */}
-                      <div className="flex flex-row gap-3 md:justify-end items-center">
-                        <Link
-                          href={`/demo/${project._id}`}
-                          className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white px-4 sm:px-6 py-2.5 rounded-lg font-medium transition-all duration-300 shadow-md"
-                        >
-                          View Details
-                          <ArrowRight size={16} />
-                        </Link>
-
-                        <Link href={project.liveUrl || '#'} target="_blank">
-                          <button className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 hover:border-purple-500 text-gray-700 dark:text-gray-300 hover:text-purple-500 px-4 sm:px-6 py-2.5 rounded-lg font-medium transition-all duration-300">
-                            <ExternalLink size={16} />
-                            Live Demo
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
+                    <Link href={project.liveUrl || '#'} target="_blank">
+                      <button className="inline-flex items-center justify-center gap-1 border border-gray-300 dark:border-gray-600 hover:border-purple-500 text-gray-700 dark:text-gray-300 hover:text-purple-500 px-3 py-1.5 rounded-lg font-medium text-sm transition-all duration-300">
+                        <ExternalLink size={14} />
+                        Live
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
