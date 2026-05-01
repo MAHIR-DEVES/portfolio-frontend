@@ -214,7 +214,7 @@ const AboutService = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative group">
-              <div className="relative z-10 w-64 h-64 lg:w-96 lg:h-[450px] rounded-2xl overflow-hidden border-4 border-purple-500/20 group-hover:border-purple-400/40 transition-all duration-300">
+              <div className="relative z-10 w-80 h-80 lg:w-96 lg:h-[450px] rounded-2xl overflow-hidden border-4 border-purple-500/20 group-hover:border-purple-400/40 transition-all duration-300">
                 <div className="relative w-full h-full">
                   <Image
                     src="/images/Md Meherab Hossen.jpeg"
