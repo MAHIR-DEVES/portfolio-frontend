@@ -16,13 +16,13 @@ const EducationalAndExperience = () => {
       degree: 'Higher Secondary Certificate (HSC)',
       institution: 'Nazipur Govt. College',
       location: 'Nazipur, Bangladesh',
-      year: '2022 - 2024',
+      year: '2023 - 2025',
     },
     {
       degree: 'Secondary School Certificate (SSC)',
       institution: 'Nazipur High School',
       location: 'Nazipur, Bangladesh',
-      year: '2020 - 2022',
+      year: '2021 - 2023',
     },
   ];
 
@@ -31,9 +31,9 @@ const EducationalAndExperience = () => {
       title: 'Frontend Developer',
       company: 'Creative Software LTD',
       location: 'Remote',
-      period: '2023 - Present',
+      period: '1 year ',
       description:
-        'Building responsive web applications using React, Next.js & Tailwind CSS',
+        'Building responsive web applications using React, Next.js , TypeScript & Tailwind CSS',
     },
   ];
 

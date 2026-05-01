@@ -283,8 +283,8 @@ const SkillSection = () => {
             </div>
 
             {/* Express */}
-            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
-              <SiExpress className="text-gray-600 dark:text-gray-400 text-base sm:text-lg md:text-xl" />
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105 hidden sm:inline">
+              <SiExpress className="text-gray-600 dark:text-gray-400 text-base sm:text-lg md:text-xl " />
               <span className="hidden sm:inline text-gray-600 dark:text-gray-400 font-medium text-sm md:text-base whitespace-nowrap">
                 Express
               </span>

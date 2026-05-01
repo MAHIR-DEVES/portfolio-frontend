@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 // Dynamically import framer-motion with no SSR
 const MotionDiv = dynamic(
@@ -214,11 +215,14 @@ const AboutService = () => {
           >
             <div className="relative group">
               <div className="relative z-10 w-64 h-64 lg:w-96 lg:h-[450px] rounded-2xl overflow-hidden border-4 border-purple-500/20 group-hover:border-purple-400/40 transition-all duration-300">
-                <img
-                  src="/images/about.jpg"
-                  alt="Profile"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/Md Meherab Hossen.jpeg"
+                    alt="Profile"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-orange-500/10 group-hover:from-purple-500/5 group-hover:to-orange-500/5 transition-all duration-300"></div>
               </div>
 
