@@ -80,6 +80,35 @@ const AboutService = () => {
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+          {/* Image Section */}
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative group">
+              <div className="relative z-10 w-80 h-80 lg:w-96 lg:h-[450px] rounded-2xl overflow-hidden border-4 border-purple-500/20 group-hover:border-purple-400/40 transition-all duration-300">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/Md Meherab Hossen.jpeg"
+                    alt="Profile"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-orange-500/10 group-hover:from-purple-500/5 group-hover:to-orange-500/5 transition-all duration-300"></div>
+              </div>
+
+              {/* Animated Background Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-orange-500 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-30 group-hover:opacity-50 -z-10"></div>
+
+              {/* Floating Elements */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full opacity-70 group-hover:animate-pulse"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-orange-400 rounded-full opacity-70 group-hover:animate-pulse delay-75"></div>
+            </div>
+          </MotionDiv>
           <div className="lg:col-span-2 space-y-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* My Journey */}
@@ -204,36 +233,6 @@ const AboutService = () => {
               </div>
             </MotionDiv>
           </div>
-
-          {/* Image Section */}
-          <MotionDiv
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative group">
-              <div className="relative z-10 w-80 h-80 lg:w-96 lg:h-[450px] rounded-2xl overflow-hidden border-4 border-purple-500/20 group-hover:border-purple-400/40 transition-all duration-300">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="/images/Md Meherab Hossen.jpeg"
-                    alt="Profile"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-orange-500/10 group-hover:from-purple-500/5 group-hover:to-orange-500/5 transition-all duration-300"></div>
-              </div>
-
-              {/* Animated Background Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-orange-500 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-30 group-hover:opacity-50 -z-10"></div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full opacity-70 group-hover:animate-pulse"></div>
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-orange-400 rounded-full opacity-70 group-hover:animate-pulse delay-75"></div>
-            </div>
-          </MotionDiv>
         </div>
       </div>
     </section>
