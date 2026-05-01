@@ -138,7 +138,7 @@ const Banner = () => {
 
   return (
     <section id="home" ref={bannerRef} className="relative  overflow-hidden">
-      <div className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="relative pt-20  md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col-reverse items-center  md:flex-row">
           {/* Text Content */}
           <div
@@ -253,7 +253,7 @@ const Banner = () => {
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <motion.div
               ref={imageRef}
-              className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
+              className="relative w-76 h-76 md:w-80 md:h-80 lg:w-96 lg:h-96"
               initial="initial"
               animate="animate"
             >

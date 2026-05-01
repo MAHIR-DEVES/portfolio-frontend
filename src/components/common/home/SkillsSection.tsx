@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaNetworkWired } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaNetworkWired, FaAws } from 'react-icons/fa';
 import {
   SiMongodb,
   SiExpress,
@@ -17,8 +17,16 @@ import {
   SiVercel,
   SiNetlify,
   SiFigma,
+  SiPostgresql,
+  SiPrisma,
+  SiGo,
+  SiDocker,
+  SiGithubactions,
+  SiFramer,
+  SiReactquery,
 } from 'react-icons/si';
 import { IoLogoFirebase } from 'react-icons/io5';
+import { Layers } from 'lucide-react';
 
 const SkillSection = () => {
   const skillCategories = [
@@ -29,6 +37,10 @@ const SkillSection = () => {
           name: 'JavaScript',
           icon: <SiJavascript className="w-6 h-6 text-yellow-400" />,
         },
+        {
+          name: 'TypeScript',
+          icon: <SiTypescript className="w-6 h-6 text-blue-500" />,
+        },
         { name: 'React', icon: <FaReact className="w-6 h-6 text-cyan-400" /> },
         {
           name: 'Next.js',
@@ -36,17 +48,22 @@ const SkillSection = () => {
             <SiNextdotjs className="w-6 h-6 text-gray-700 dark:text-gray-300" />
           ),
         },
+
         {
-          name: 'TypeScript',
-          icon: <SiTypescript className="w-6 h-6 text-blue-500" />,
-        },
-        {
-          name: 'Firebase',
-          icon: <IoLogoFirebase className="w-6 h-6 text-yellow-500" />,
+          name: 'Shadcn UI',
+          icon: <Layers className="w-6 h-6 text-black dark:text-white" />,
         },
         {
           name: 'Tailwind CSS',
           icon: <SiTailwindcss className="w-6 h-6 text-teal-400" />,
+        },
+        {
+          name: 'Framer Motion',
+          icon: <SiFramer className="w-6 h-6 text-pink-500" />,
+        },
+        {
+          name: 'TanStack Query',
+          icon: <SiReactquery className="w-6 h-6 text-red-500" />,
         },
       ],
       gradient: 'from-purple-500 to-purple-600',
@@ -75,8 +92,16 @@ const SkillSection = () => {
           icon: <FaNodeJs className="w-6 h-6 text-green-600" />,
         },
         {
-          name: 'RESTful API',
-          icon: <FaNetworkWired className="w-6 h-6 text-purple-500" />,
+          name: 'PostgreSQL',
+          icon: <SiPostgresql className="w-6 h-6 text-blue-500" />,
+        },
+        {
+          name: 'Prisma',
+          icon: <SiPrisma className="w-6 h-6 text-indigo-500" />,
+        },
+        {
+          name: 'Golang',
+          icon: <SiGo className="w-6 h-6 text-cyan-500" />,
         },
       ],
       gradient: 'from-orange-500 to-orange-600',
@@ -102,13 +127,22 @@ const SkillSection = () => {
             <SiVercel className="w-6 h-6 text-gray-800 dark:text-gray-400" />
           ),
         },
-        {
-          name: 'Netlify',
-          icon: <SiNetlify className="w-6 h-6 text-teal-500" />,
-        },
+
         {
           name: 'Figma',
           icon: <SiFigma className="w-6 h-6 text-purple-500" />,
+        },
+        {
+          name: 'Docker',
+          icon: <SiDocker className="w-6 h-6 text-blue-400" />,
+        },
+        {
+          name: 'AWS',
+          icon: <FaAws className="w-6 h-6 text-orange-400" />,
+        },
+        {
+          name: 'CI/CD',
+          icon: <SiGithubactions className="w-6 h-6 text-purple-500" />,
         },
       ],
       gradient: 'from-purple-500 to-orange-500',
@@ -117,7 +151,7 @@ const SkillSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 px-6 md:px-0">
+    <section id="skills" className="pb-15 md:pb-0 md:py-16 px-6 md:px-0">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -176,70 +210,82 @@ const SkillSection = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* MERN Stack Badge */}
+        {/* MERN Stack Badge - MOBILE ICON ONLY VERSION */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 w-full"
+          className="mt-12 sm:mt-16 w-full"
         >
-          <div className="text-center mb-6">
-            <span className="text-lg text-gray-600 dark:text-gray-400">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400">
               Specialized in
             </span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* Badges Container */}
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 max-w-7xl mx-auto">
             {/* React */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <FaReact className="text-cyan-400 text-xl" />
-              <span className="text-cyan-400 font-medium">React</span>
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <FaReact className="text-cyan-400 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-cyan-400 font-medium text-sm md:text-base whitespace-nowrap">
+                React
+              </span>
             </div>
 
             {/* Next.js */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <SiNextdotjs className="text-gray-700 dark:text-gray-300 text-xl" />
-              <span className="text-gray-700 dark:text-gray-300 font-medium">
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <SiNextdotjs className="text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-gray-700 dark:text-gray-300 font-medium text-sm md:text-base whitespace-nowrap">
                 Next.js
               </span>
             </div>
 
             {/* TypeScript */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <SiTypescript className="text-blue-500 text-xl" />
-              <span className="text-blue-500 font-medium">TypeScript</span>
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <SiTypescript className="text-blue-500 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-blue-500 font-medium text-sm md:text-base whitespace-nowrap">
+                TypeScript
+              </span>
             </div>
 
             {/* MongoDB */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <SiMongodb className="text-green-500 text-xl" />
-              <span className="text-green-500 font-medium">MongoDB</span>
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <SiMongodb className="text-green-500 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-green-500 font-medium text-sm md:text-base whitespace-nowrap">
+                MongoDB
+              </span>
             </div>
 
-            {/* Mongoose */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <SiMongoose className="text-green-600 text-xl" />
-              <span className="text-green-600 font-medium">Mongoose</span>
+            {/* PostgreSQL */}
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <SiPostgresql className="text-blue-500 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-blue-500 font-medium text-sm md:text-base whitespace-nowrap">
+                PostgreSQL
+              </span>
             </div>
 
-            {/* MySQL */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <SiMysql className="text-blue-600 text-xl" />
-              <span className="text-blue-600 font-medium">MySQL</span>
+            {/* Prisma */}
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <SiPrisma className="text-indigo-500 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-indigo-500 font-medium text-sm md:text-base whitespace-nowrap">
+                Prisma
+              </span>
             </div>
 
             {/* Node.js */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <FaNodeJs className="text-green-600 text-xl" />
-              <span className="text-green-600 font-medium">Node.js</span>
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <FaNodeJs className="text-green-600 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-green-600 font-medium text-sm md:text-base whitespace-nowrap">
+                Node.js
+              </span>
             </div>
 
             {/* Express */}
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg">
-              <SiExpress className="text-gray-600 dark:text-gray-400 text-xl" />
-              <span className="text-gray-600 dark:text-gray-400 font-medium">
+            <div className="flex items-center justify-center gap-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <SiExpress className="text-gray-600 dark:text-gray-400 text-base sm:text-lg md:text-xl" />
+              <span className="hidden sm:inline text-gray-600 dark:text-gray-400 font-medium text-sm md:text-base whitespace-nowrap">
                 Express
               </span>
             </div>

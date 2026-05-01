@@ -39,7 +39,7 @@ const EducationalAndExperience = () => {
 
   if (!isMounted) {
     return (
-      <section className="py-16 px-4">
+      <section className="md:py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <div className="h-8 w-40 bg-gray-200 dark:bg-gray-700 rounded mx-auto animate-pulse"></div>
@@ -54,7 +54,7 @@ const EducationalAndExperience = () => {
   }
 
   return (
-    <section className="py-16 px-4 ">
+    <section className="md:py-16 px-4 ">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

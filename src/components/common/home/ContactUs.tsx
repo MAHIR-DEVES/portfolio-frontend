@@ -49,7 +49,7 @@ const ContactUs = () => {
 
   return (
     <section id="contact">
-      <div className="min-h-screen py-12 sm:py-16 ">
+      <div className="min-h-screen  sm:py-16 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
