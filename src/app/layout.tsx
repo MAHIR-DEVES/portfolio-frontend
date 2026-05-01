@@ -9,12 +9,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Softvisionix ',
+  title: ' Meherab hossen ',
   icons: {
     icon: '/favicon.ico',
   },
   description:
-    'Softvisionix is a leading software development company specializing in custom solutions, web and mobile app development, and digital transformation services. We help businesses innovate and grow with cutting-edge technology.',
+    'Meherab Hossen is a skilled web developer specializing in React and Next.js, with a passion for creating dynamic and responsive web applications. With expertise in front-end development, Meherab is dedicated to delivering high-quality user experiences through innovative design and efficient coding practices.',
 };
 
 export default function RootLayout({
