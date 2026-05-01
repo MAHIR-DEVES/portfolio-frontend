@@ -173,8 +173,8 @@ export default function Navbar() {
 
               {/* Resume/CV Button */}
               <a
-                href="/resume.pdf"
-                target="_blank"
+                href="/Md_Meherab_Hossain_Munna_CV.pdf"
+                download
                 rel="noopener noreferrer"
                 className="hidden sm:block px-5 py-2 bg-gradient-to-r 
                          from-purple-500 to-orange-500
@@ -281,15 +281,15 @@ export default function Navbar() {
           {/* Footer */}
           <div className="p-6 border-t border-purple-500/20 dark:border-purple-400/20 space-y-4">
             <a
-              href="/resume.pdf"
-              target="_blank"
+              href="/Md_Meherab_Hossain_Munna_CV.pdf"
+              download
               rel="noopener noreferrer"
               className="w-full py-3 bg-gradient-to-r from-purple-500 to-orange-500 
                        text-white font-semibold rounded-xl text-center block
                        hover:from-purple-600 hover:to-orange-600 transition-all duration-300 shadow-lg"
               onClick={() => setIsOpen(false)}
             >
-              View Resume
+              Resume
             </a>
 
             <p className="text-center text-sm text-gray-600 dark:text-gray-400">

@@ -227,10 +227,22 @@ export default function ProjectDetailsPage() {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-purple-600 dark:border-purple-500 text-purple-600 dark:text-purple-500 hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white px-6 py-4 rounded-xl font-medium transition-all duration-300"
+                className="group relative flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-medium transition-all duration-300 overflow-hidden border border-purple-500/30 dark:border-purple-400/30 hover:border-purple-600"
               >
-                <ExternalLink size={20} />
-                View Live Demo
+                {/* Background Glow - Darker for better contrast */}
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-700 to-orange-600 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                {/* Shine effect */}
+                <span className="absolute -left-full top-0 h-full w-1/2 bg-white/30 rotate-12 group-hover:left-full transition-all duration-700" />
+
+                {/* Content - Always white on hover */}
+                <span className="relative z-10 flex items-center gap-2 text-purple-600 dark:text-purple-400 group-hover:text-white transition-colors duration-300 font-semibold">
+                  <ExternalLink
+                    size={20}
+                    className="group-hover:text-white transition-colors"
+                  />
+                  <span>View Live Demo</span>
+                </span>
               </a>
             )}
           </div>

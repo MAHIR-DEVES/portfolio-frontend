@@ -139,7 +139,7 @@ const Banner = () => {
   return (
     <section id="home" ref={bannerRef} className="relative  overflow-hidden">
       <div className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col-reverse items-center gap-8 lg:gap-12 xl:gap-16 md:flex-row">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse items-center  md:flex-row">
           {/* Text Content */}
           <div
             ref={textRef}
@@ -172,7 +172,7 @@ const Banner = () => {
                 />
               </span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto md:mx-0">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto md:mx-0">
               I&apos;m a passionate developer from Bangladesh specializing in
               creating beautiful, functional websites and web applications.
             </p>
@@ -182,7 +182,7 @@ const Banner = () => {
                 whileTap={{ scale: 0.95 }}
                 className="btn btn-primary bg-gradient-to-r from-purple-600 to-orange-500 border-none text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 text-sm sm:text-base"
               >
-                <a href="/Final Resume.pdf" download>
+                <a href="/Md_Meherab_Hossain_Munna_CV.pdf" download>
                   Download Resume
                 </a>
               </motion.button>
